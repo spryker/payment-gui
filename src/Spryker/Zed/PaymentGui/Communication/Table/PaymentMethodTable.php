@@ -88,19 +88,11 @@ class PaymentMethodTable extends AbstractTable
      */
     protected $paymentMethodQuery;
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethodQuery $paymentMethodQuery
-     */
     public function __construct(SpyPaymentMethodQuery $paymentMethodQuery)
     {
         $this->paymentMethodQuery = $paymentMethodQuery;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config = $this->configureHeader($config);
@@ -111,11 +103,6 @@ class PaymentMethodTable extends AbstractTable
         return $config;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureHeader(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setHeader([
@@ -130,11 +117,6 @@ class PaymentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureSortableColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setSortable([
@@ -147,11 +129,6 @@ class PaymentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configureSearchableColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setSearchable([
@@ -162,11 +139,6 @@ class PaymentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $tableConfiguration
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function setRawColumns(TableConfiguration $tableConfiguration): TableConfiguration
     {
         $tableConfiguration->setRawColumns([
@@ -178,11 +150,6 @@ class PaymentMethodTable extends AbstractTable
         return $tableConfiguration;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return array
-     */
     protected function prepareData(TableConfiguration $config): array
     {
         /** @var array<\Orm\Zed\Payment\Persistence\SpyPaymentMethod> $paymentMethodEntities */
@@ -196,9 +163,6 @@ class PaymentMethodTable extends AbstractTable
         return $paymentMethodRows;
     }
 
-    /**
-     * @return \Orm\Zed\Payment\Persistence\SpyPaymentMethodQuery
-     */
     protected function prepareQuery(): SpyPaymentMethodQuery
     {
         $query = $this->paymentMethodQuery
@@ -211,11 +175,6 @@ class PaymentMethodTable extends AbstractTable
         return $query;
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return array
-     */
     protected function mapPaymentMethodRow(SpyPaymentMethod $paymentMethodEntity): array
     {
         return [
@@ -228,22 +187,12 @@ class PaymentMethodTable extends AbstractTable
         ];
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return string
-     */
     protected function generateIsActiveLabel(SpyPaymentMethod $paymentMethodEntity): string
     {
         return $paymentMethodEntity->isActive() ? $this->generateLabel('Active', static::LABEL_PRIMARY)
             : $this->generateLabel('Inactive', 'label-light');
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return string
-     */
     protected function buildLinks(SpyPaymentMethod $paymentMethodEntity): string
     {
         return implode(' ', [
@@ -252,11 +201,6 @@ class PaymentMethodTable extends AbstractTable
         ]);
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return string
-     */
     protected function generatePaymentMethodViewButton(SpyPaymentMethod $paymentMethodEntity): string
     {
         return $this->generateViewButton(
@@ -267,11 +211,6 @@ class PaymentMethodTable extends AbstractTable
         );
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return string
-     */
     protected function generatePaymentMethodEditButton(SpyPaymentMethod $paymentMethodEntity): string
     {
         return $this->generateEditButton(
@@ -282,11 +221,6 @@ class PaymentMethodTable extends AbstractTable
         );
     }
 
-    /**
-     * @param \Orm\Zed\Payment\Persistence\SpyPaymentMethod $paymentMethodEntity
-     *
-     * @return string
-     */
     protected function getStoreNames(SpyPaymentMethod $paymentMethodEntity): string
     {
         $storeNames = [];

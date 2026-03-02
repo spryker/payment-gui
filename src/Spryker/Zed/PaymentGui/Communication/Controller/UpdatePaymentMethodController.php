@@ -84,11 +84,6 @@ class UpdatePaymentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentMethodResponseTransfer $paymentMethodResponseTransfer
-     *
-     * @return void
-     */
     protected function setErrors(PaymentMethodResponseTransfer $paymentMethodResponseTransfer): void
     {
         foreach ($paymentMethodResponseTransfer->getMessages() as $messageTransfer) {
@@ -102,11 +97,6 @@ class UpdatePaymentMethodController extends AbstractController
         }
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface $paymentMethodForm
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     protected function handlePaymentMethodForm(FormInterface $paymentMethodForm): RedirectResponse
     {
         $paymentMethodResponseTransfer = $this->getFactory()

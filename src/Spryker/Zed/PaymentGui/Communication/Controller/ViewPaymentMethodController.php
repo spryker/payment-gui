@@ -69,11 +69,6 @@ class ViewPaymentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentMethodResponseTransfer $paymentMethodResponseTransfer
-     *
-     * @return void
-     */
     protected function setErrors(PaymentMethodResponseTransfer $paymentMethodResponseTransfer): void
     {
         foreach ($paymentMethodResponseTransfer->getMessages() as $messageTransfer) {

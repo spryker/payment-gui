@@ -14,18 +14,8 @@ use Generated\Shared\Transfer\PaymentMethodTransfer;
 
 interface PaymentGuiToPaymentFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\PaymentMethodCriteriaTransfer $paymentMethodCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaymentMethodCollectionTransfer
-     */
     public function getPaymentMethodCollection(PaymentMethodCriteriaTransfer $paymentMethodCriteriaTransfer): PaymentMethodCollectionTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PaymentMethodTransfer $paymentMethodTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaymentMethodResponseTransfer
-     */
     public function updatePaymentMethod(
         PaymentMethodTransfer $paymentMethodTransfer
     ): PaymentMethodResponseTransfer;

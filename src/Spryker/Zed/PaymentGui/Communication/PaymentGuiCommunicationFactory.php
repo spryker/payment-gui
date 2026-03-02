@@ -23,9 +23,6 @@ use Symfony\Component\Form\FormInterface;
 
 class PaymentGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\PaymentGui\Communication\Table\PaymentMethodTable
-     */
     public function createPaymentMethodTable(): PaymentMethodTable
     {
         return new PaymentMethodTable($this->getPaymentMethodQuery());
@@ -42,17 +39,11 @@ class PaymentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(ViewPaymentMethodForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\PaymentGui\Communication\Form\DataProvider\ViewPaymentMethodFormDataProvider
-     */
     public function createViewPaymentMethodFormDataProvider(): ViewPaymentMethodFormDataProvider
     {
         return new ViewPaymentMethodFormDataProvider();
     }
 
-    /**
-     * @return \Spryker\Zed\PaymentGui\Communication\Form\DataProvider\PaymentMethodFormDataProvider
-     */
     public function createPaymentMethodFormDataProvider(): PaymentMethodFormDataProvider
     {
         return new PaymentMethodFormDataProvider();
@@ -69,33 +60,21 @@ class PaymentGuiCommunicationFactory extends AbstractCommunicationFactory
         return $this->getFormFactory()->create(PaymentMethodForm::class, $data, $options);
     }
 
-    /**
-     * @return \Spryker\Zed\PaymentGui\Communication\Tabs\PaymentMethodTabs
-     */
     public function createPaymentMethodTabs(): PaymentMethodTabs
     {
         return new PaymentMethodTabs();
     }
 
-    /**
-     * @return \Orm\Zed\Payment\Persistence\SpyPaymentMethodQuery
-     */
     public function getPaymentMethodQuery(): SpyPaymentMethodQuery
     {
         return $this->getProvidedDependency(PaymentGuiDependencyProvider::PROPEL_QUERY_PAYMENT_METHOD);
     }
 
-    /**
-     * @return \Spryker\Zed\PaymentGui\Dependency\Facade\PaymentGuiToPaymentFacadeInterface
-     */
     public function getPaymentFacade(): PaymentGuiToPaymentFacadeInterface
     {
         return $this->getProvidedDependency(PaymentGuiDependencyProvider::FACADE_PAYMENT);
     }
 
-    /**
-     * @return \Spryker\Zed\Kernel\Communication\Form\FormTypeInterface
-     */
     public function getStoreRelationFormTypePlugin(): FormTypeInterface
     {
         return $this->getProvidedDependency(PaymentGuiDependencyProvider::PLUGIN_STORE_RELATION_FORM_TYPE);

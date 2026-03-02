@@ -15,9 +15,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class PaymentMethodController extends AbstractController
 {
-    /**
-     * @return array
-     */
     public function indexAction(): array
     {
         $table = $this->getFactory()
@@ -28,9 +25,6 @@ class PaymentMethodController extends AbstractController
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function tableAction(): JsonResponse
     {
         $table = $this->getFactory()->createPaymentMethodTable();
